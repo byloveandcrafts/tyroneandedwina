@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Tyrone &amp; Edwina — June 15, 2026</title>
+<meta property="og:title" content="Tyrone &amp; Edwina — June 15, 2026">
+<meta property="og:description" content="Together with their families, we joyfully invite you to celebrate our wedding day.">
+<meta property="og:image" content="1.jpg">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── EARTHY PALETTE: Burgundy · Maroon · Gray-Brown · Champagne ── */
+:root {
+  --burg:        #6B2033;
+  --burg-deep:   #3D1220;
+  --burg-mid:    #8B2840;
+  --burg-light:  #A63050;
+  --burg-pale:   #F2E5E8;
+  --maroon:      #5C1A26;
+  --gray-br:     #6B5A52;
+  --gray-br-lt:  #9C8880;
+  --taupe:       #C4B5A8;
+  --sand:        #E8DDD4;
+  --champagne:   #D4C4A0;
+  --champ-deep:  #B8A478;
+  --cream:       #F5EFE8;
+  --warm-white:  #FBF8F4;
+  --blush:       #F0E8E2;
+  --gold:        #B89A68;
+  --gold-bright: #C9AD7A;
+  --gold-line:   rgba(184,154,104,0.28);
+  --text:        #2A1A14;
+  --text-mid:    #5C3A30;
+  --text-light:  #8C6A5A;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;font-size:16px;overflow-x:hidden;}
+
+/* ── ENVELOPE OVERLAY ── */
+#envelope-overlay{
+  position:fixed;inset:0;
+  background:linear-gradient(145deg,var(--burg-deep) 0%,var(--maroon) 50%,#2A1008 100%);
+  z-index:999999;display:flex;
+  align-items:center;justify-content:center;flex-direction:column;gap:2.5rem;
+  transition:opacity 1.2s ease,visibility 1.2s ease;
+}
+#envelope-overlay.hidden{opacity:0;visibility:hidden;pointer-events:none;}
+.env-tagline{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(.85rem,2.5vw,1.1rem);letter-spacing:.32em;
+  color:var(--champagne);text-transform:uppercase;text-align:center;
+  opacity:.75;margin-bottom:-.5rem;
+  animation:fadeUp .8s ease both, floatY 3s 1s ease-in-out infinite;
+}
+.envelope{
+  position:relative;width:320px;height:220px;
+  cursor:pointer;transition:transform .35s ease;
+}
+.envelope:hover{transform:translateY(-6px);}
+.env-back{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,var(--gray-br),var(--burg-deep));
+  border-radius:3px;
+  box-shadow:0 24px 60px rgba(0,0,0,.55),0 4px 12px rgba(0,0,0,.3);
+}
+.letter{
+  position:absolute;left:10px;right:10px;bottom:10px;height:190px;
+  background:var(--warm-white);border-radius:2px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;z-index:1;
+  box-shadow:0 2px 14px rgba(0,0,0,.18);
+  transition:transform .9s cubic-bezier(.22,1,.36,1);
+  padding:1.2rem;
+}
+.envelope.open .letter{transform:translateY(-120px);}
+.letter-ornament{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;}
+.letter-orn-line{width:28px;height:1px;background:var(--gold-line);}
+.letter-orn-dot{width:3px;height:3px;background:var(--gold);transform:rotate(45deg);}
+.letter-names{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.7rem;font-weight:400;color:var(--burg-deep);
+  line-height:1.05;margin-bottom:.3rem;
+  background:linear-gradient(90deg,var(--burg-deep),var(--burg-mid),var(--burg-deep));
+  background-size:200% auto;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:shimmer 3s linear infinite;
+}
+.letter-sub{
+  font-family:'Jost',sans-serif;font-size:.68rem;
+  text-transform:uppercase;letter-spacing:.28em;color:var(--text-light);
+}
+.env-front{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  border-left:160px solid var(--gray-br);
+  border-right:160px solid var(--gray-br);
+  border-bottom:110px solid var(--burg-deep);
+  border-top:110px solid transparent;
+  border-radius:3px;
+}
+.env-flap{
+  position:absolute;top:0;left:0;width:0;height:0;z-index:3;pointer-events:none;
+  border-left:160px solid transparent;
+  border-right:160px solid transparent;
+  border-top:116px solid var(--gray-br-lt);
+  transform-origin:top center;
+  transition:transform .65s cubic-bezier(.22,1,.36,1),z-index 0s .35s;
+  filter:drop-shadow(0 5px 8px rgba(0,0,0,.22));
+}
+.envelope.open .env-flap{transform:rotateX(182deg);z-index:0;}
+.seal{
+  position:absolute;top:113px;left:50%;
+  transform:translate(-50%,-50%);
+  width:58px;height:58px;
+  background:radial-gradient(circle at 35% 35%,var(--burg-mid),var(--burg-deep));
+  border-radius:50%;z-index:4;
+  box-shadow:inset 0 0 10px rgba(0,0,0,.5),0 4px 10px rgba(0,0,0,.4);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold-bright);font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:1.2rem;letter-spacing:.04em;
+  transition:opacity .3s ease,transform .3s ease;
+}
+.envelope.open .seal{opacity:0;transform:translate(-50%,-50%) scale(1.5);}
+.envelope-text{
+  position:absolute;bottom:-48px;left:0;width:100%;text-align:center;
+  font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);animation:pulse 2.2s infinite;
+}
+.envelope.open .envelope-text{opacity:0;}
+@media(max-width:400px){
+  .envelope{width:280px;height:190px;}
+  .env-front{border-left:140px solid var(--gray-br);border-right:140px solid var(--gray-br);border-bottom:95px solid var(--burg-deep);}
+  .env-flap{border-left:140px solid transparent;border-right:140px solid transparent;border-top:100px solid var(--gray-br-lt);}
+  .seal{top:100px;width:50px;height:50px;font-size:1rem;}
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;height:56px;
+  background:rgba(245,239,232,.97);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--gold-line);
+}
+.nav-monogram{
+  font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;
+  color:var(--burg);letter-spacing:.06em;
+  animation:goldGlow 4s ease-in-out infinite;
+}
+.nav-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.nav-links a{
+  font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--text-mid);text-decoration:none;transition:color .25s;font-weight:400;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;
+  background:var(--burg);transition:width .3s ease;
+}
+.nav-links a:hover{color:var(--burg);}
+.nav-links a:hover::after{width:100%;}
+.nav-rsvp{
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  padding:.38rem 1.1rem;border:1px solid var(--burg);color:var(--burg);
+  text-decoration:none;transition:all .25s;font-weight:400;
+}
+.nav-rsvp:hover{background:var(--burg);color:var(--warm-white);}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:4px;width:32px;}
+.hamburger span{display:block;height:2px;width:100%;background:var(--text);border-radius:2px;transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:80px 1.5rem 5rem;
+  background:linear-gradient(170deg,var(--warm-white) 0%,var(--blush) 45%,var(--burg-pale) 100%);
+  position:relative;overflow:hidden;
+}
+.hero-petals{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.petal{
+  position:absolute;width:12px;height:18px;
+  background:radial-gradient(ellipse at 40% 35%,rgba(184,154,104,.22),rgba(107,32,51,.09));
+  border-radius:50% 10% 50% 10%;
+  animation:floatPetal linear infinite;
+  transform-origin:center;
+}
+@keyframes floatPetal{
+  0%{transform:translateY(110vh) rotate(0deg) scale(.8);opacity:0;}
+  10%{opacity:.6;}90%{opacity:.4;}
+  100%{transform:translateY(-12vh) rotate(720deg) scale(1.1);opacity:0;}
+}
+.hero-circle{
+  position:absolute;border-radius:50%;pointer-events:none;
+  border:1px solid rgba(107,32,51,.08);
+  animation:breathe 6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{transform:scale(1);}50%{transform:scale(1.04);}}
+.hero-content{position:relative;z-index:1;}
+.hero-eyebrow{font-size:.75rem;letter-spacing:.48em;text-transform:uppercase;color:var(--burg-mid);font-weight:400;margin-bottom:2rem;animation:fadeUp 1.2s ease both;}
+.hero-tag{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:1.2rem;display:block;animation:fadeUp 1.2s .05s ease both;}
+.hero-names{font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--text);line-height:1;animation:fadeUp 1.2s .12s ease both;}
+.hero-name{
+  display:block;font-size:clamp(4rem,14vw,8.5rem);
+  background:linear-gradient(90deg,var(--text) 0%,var(--burg) 40%,var(--gold) 60%,var(--text) 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:fadeUp 1.2s .12s ease both, shimmer 4s 1.5s linear infinite;
+}
+.hero-amp{display:block;font-style:italic;font-size:clamp(1.4rem,4vw,2.8rem);color:var(--burg);letter-spacing:.12em;margin:.15em 0;animation:fadeUp 1.2s .18s ease both, goldGlow 3s 2s ease-in-out infinite;}
+.hero-hashtag{
+  display:block;font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(.85rem,2.2vw,1.1rem);color:var(--gray-br);letter-spacing:.12em;
+  margin-top:.4rem;animation:fadeUp 1.2s .22s ease both;
+}
+.hero-ornament{display:flex;align-items:center;justify-content:center;gap:.8rem;margin:2rem 0 1.4rem;animation:fadeUp 1.2s .24s ease both;}
+.orn-line{height:1px;width:70px;background:linear-gradient(to right,transparent,var(--gold));}
+.orn-line.r{background:linear-gradient(to left,transparent,var(--gold));}
+.orn-diamond{width:5px;height:5px;background:var(--burg);transform:rotate(45deg);animation:popIn .6s .6s ease both, heartbeat 3s 2s ease-in-out infinite;}
+.hero-date-block{animation:fadeUp 1.2s .36s ease both;}
+.hero-date{font-size:.88rem;letter-spacing:.28em;text-transform:uppercase;color:var(--text-mid);display:block;margin-bottom:2.4rem;}
+.countdown{display:inline-flex;border:1px solid var(--gold-line);background:rgba(255,255,255,.55);backdrop-filter:blur(6px);}
+.cd-item{padding:.9rem 1.4rem;text-align:center;border-right:1px solid var(--gold-line);min-width:64px;}
+.cd-item:last-child{border-right:none;}
+.cd-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--burg-deep);display:block;line-height:1;transition:transform .15s ease,color .15s ease;}
+.cd-num.tick{animation:countPulse .3s ease;}
+.cd-lbl{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-light);display:block;margin-top:.3rem;}
+.scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;animation:fadeUp 2s 1.4s ease both;}
+.scroll-bar{width:1px;height:32px;background:linear-gradient(to bottom,var(--burg),transparent);animation:scrollLine 1.8s ease-in-out infinite;}
+.hero-spark{position:absolute;pointer-events:none;z-index:0;width:5px;height:5px;border-radius:50%;background:var(--gold);animation:sparkle linear infinite;}
+
+/* ── SHARED SECTION ── */
+section{padding:5rem 1.5rem;}
+.s-wrap{max-width:900px;margin:0 auto;}
+.s-head{text-align:center;margin-bottom:3.5rem;}
+.s-tag{font-size:.75rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:400;display:block;margin-bottom:.8rem;position:relative;overflow:hidden;}
+.s-tag::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .8s ease;}
+.s-tag.in::after{transform:scaleX(1);}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:300;color:var(--text);line-height:1.1;}
+.s-title em{font-style:italic;color:var(--gray-br-lt);}
+.s-rule{width:40px;height:1px;background:var(--taupe);margin:1.2rem auto 0;opacity:.55;transition:width 1s ease .3s, opacity .6s ease !important;}
+.s-rule.in{width:80px !important;}
+
+/* ── HASHTAG BANNER ── */
+#hashtag{background:var(--burg);padding:3rem 1.5rem;position:relative;overflow:hidden;}
+#hashtag::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);animation:shimmer 3s linear infinite;background-size:200% auto;}
+.hashtag-inner{text-align:center;}
+.hashtag-label{font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:400;display:block;margin-bottom:.7rem;}
+.hashtag-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,5vw,3rem);font-style:italic;font-weight:300;color:white;display:inline-block !important;margin-bottom:.8rem;animation:floatY 4s ease-in-out infinite;}
+.hashtag-note{font-size:.88rem;color:rgba(255,255,255,.7);letter-spacing:.06em;}
+
+/* ── ABOUT ── */
+#about{background:var(--warm-white);}
+.about-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:start;max-width:780px;margin:2rem auto 0;}
+.about-person{text-align:center;}
+.about-photo-wrap{
+  width:100%;max-width:230px;margin:0 auto 1.2rem;
+  aspect-ratio:3/4;overflow:hidden;
+  border:1px solid var(--gold-line);position:relative;
+  transition:transform .5s ease, box-shadow .5s ease;
+}
+.about-photo-wrap:hover{transform:scale(1.03) translateY(-4px);box-shadow:0 20px 48px rgba(107,32,51,.18);}
+.about-photo-wrap::before{content:'';position:absolute;inset:8px;border:1px solid rgba(107,32,51,.1);z-index:1;pointer-events:none;}
+.about-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .7s ease;}
+.about-photo-wrap:hover img{transform:scale(1.06);}
+.about-photo-placeholder{width:100%;height:100%;background:linear-gradient(160deg,var(--burg-pale),var(--sand));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--burg);opacity:.3;}
+.about-role{font-size:.68rem;letter-spacing:.38em;text-transform:uppercase;color:var(--burg);display:block;margin-bottom:.5rem;}
+.about-name{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:400;font-style:italic;color:var(--text);margin-bottom:1rem;line-height:1.2;}
+.about-parents{font-size:.8rem;letter-spacing:.04em;color:var(--text-light);line-height:2;}
+.about-parents strong{display:block;font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--burg-mid);margin-bottom:.3rem;font-weight:400;}
+.about-divider{display:flex;align-items:center;justify-content:center;padding-top:80px;}
+.about-amp{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-style:italic;color:var(--taupe);opacity:.7;line-height:1;animation:floatY 4s ease-in-out infinite;}
+.about-divider-line{width:1px;height:200px;background:linear-gradient(to bottom,transparent,var(--gold-line),transparent);margin:0 auto;display:block;}
+
+/* ── 3D RINGS ── */
+#rings-section{background:var(--burg-deep);padding:4rem 1.5rem;text-align:center;overflow:hidden;position:relative;}
+.rings-glow{position:absolute;top:50%;left:50%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(184,154,104,.12),transparent 70%);transform:translate(-50%,-50%);animation:glimmer 3s ease-in-out infinite;pointer-events:none;}
+.rings-scene{width:220px;height:220px;margin:0 auto 2rem;perspective:600px;position:relative;}
+.ring{position:absolute;top:50%;left:50%;border-radius:50%;border:3px solid var(--gold);transform-style:preserve-3d;}
+.ring-outer{width:180px;height:180px;margin:-90px 0 0 -90px;border-color:rgba(184,154,104,.45);animation:rotateRing 8s linear infinite, glimmer 4s ease-in-out infinite !important;}
+.ring-mid{width:130px;height:130px;margin:-65px 0 0 -65px;border-color:var(--gold);border-width:2px;animation:rotateRing 5s linear infinite reverse;}
+.ring-inner{width:80px;height:80px;margin:-40px 0 0 -40px;border-color:rgba(184,154,104,.7);border-width:1px;animation:rotateRing 3s linear infinite;}
+.rings-monogram{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:2rem;font-style:italic;color:var(--gold);letter-spacing:.06em;text-shadow:0 0 20px rgba(184,154,104,.4);animation:goldGlow 2.5s ease-in-out infinite;}
+@keyframes rotateRing{0%{transform:rotate(0deg) rotateX(70deg);}100%{transform:rotate(360deg) rotateX(70deg);}}
+.rings-text{color:rgba(255,255,255,.7);font-size:.82rem;letter-spacing:.24em;text-transform:uppercase;}
+.rings-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:white;font-style:italic;margin-bottom:.6rem;}
+
+/* ── SCHEDULE ── */
+#schedule{background:var(--text);}
+#schedule .s-tag{color:var(--gold-bright);}
+#schedule .s-title{color:var(--warm-white);}
+#schedule .s-title em{color:var(--champagne);}
+#schedule .s-rule{opacity:.25;background:var(--champagne);}
+.sch-timeline{position:relative;max-width:680px;margin:0 auto;}
+.sch-timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--gold-line),var(--gold-line),transparent);transform:translateX(-50%);}
+.sch-row{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;margin-bottom:2.5rem;align-items:center;}
+.sch-left{text-align:right;padding-right:1.8rem;}
+.sch-right{padding-left:1.8rem;}
+.sch-dot-wrap{display:flex;justify-content:center;}
+.sch-dot{width:10px;height:10px;background:var(--burg);border:2px solid var(--gold);border-radius:50%;position:relative;z-index:1;animation:dotPop 2.5s ease-in-out infinite;}
+.sch-row:nth-child(2) .sch-dot{animation-delay:.4s;}
+.sch-row:nth-child(3) .sch-dot{animation-delay:.8s;}
+.sch-row:nth-child(4) .sch-dot{animation-delay:1.2s;}
+.sch-time{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;font-weight:400;}
+.sch-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--warm-white);}
+.sch-desc{font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.8;margin-top:.25rem;}
+
+/* ── ENTOURAGE ── */
+#entourage{background:var(--blush);}
+.ent-section{margin-bottom:3.5rem;}
+.ent-section:last-child{margin-bottom:0;}
+.ent-label{font-size:.72rem;letter-spacing:.38em;text-transform:uppercase;color:var(--burg);font-weight:400;text-align:center;display:block;margin-bottom:1.8rem;}
+.ent-parents{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:680px;margin:0 auto;}
+.ent-family-card{background:var(--warm-white);border:1px solid var(--gold-line);padding:1.8rem 1.5rem;text-align:center;transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;}
+.ent-family-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(107,32,51,.12);border-color:rgba(184,154,104,.55);}
+.ent-family-label{font-size:.67rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;display:block;}
+.ent-name{font-family:'Cormorant Garamond',serif;font-size:1.12rem;font-weight:400;color:var(--text);line-height:1.8;}
+.ent-honor-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;max-width:600px;margin:0 auto;}
+.ent-honor-card{background:var(--warm-white);border:1px solid var(--gold-line);padding:1.5rem;text-align:center;transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;}
+.ent-honor-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(107,32,51,.12);border-color:rgba(184,154,104,.55);}
+.ent-role{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.5rem;}
+.ent-person{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--text);line-height:1.6;}
+.ent-single{text-align:center;}
+.ent-single .ent-honor-card{max-width:300px;margin:0 auto;}
+.ent-cols{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+.ent-col-label{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--text);margin-bottom:1rem;text-align:center;}
+.ent-list{list-style:none;}
+.ent-list li{font-size:.88rem;color:var(--text-mid);padding:.58rem 0;border-bottom:1px solid rgba(107,32,51,.08);text-align:center;}
+.ent-list li:last-child{border-bottom:none;}
+.ent-list li span{font-family:'Cormorant Garamond',serif;font-size:1.02rem;color:var(--text);display:block;}
+
+/* ── SPONSORS ── */
+#sponsors{background:var(--warm-white);}
+.principal-table{width:100%;border-collapse:collapse;}
+.principal-table tbody tr td{padding:.8rem 1.2rem;font-family:'Cormorant Garamond',serif;font-size:1.08rem;color:var(--text);border-bottom:1px solid rgba(107,32,51,.08);line-height:1.5;}
+.principal-table tbody tr td:first-child{text-align:left;}
+.principal-table tbody tr td:last-child{text-align:right;}
+.principal-table tbody tr:last-child td{border-bottom:none;}
+.principal-table tbody tr:hover td{background:var(--burg-pale);}
+.sponsors-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--gold-line);border:1px solid var(--gold-line);margin-top:2.5rem;}
+.sponsor-item{background:var(--warm-white);padding:1.4rem 1.6rem;transition:transform .3s ease, background .25s;text-align:center;}
+.sponsor-item:hover{background:var(--burg-pale);transform:translateY(-3px);}
+.sponsor-type{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.4rem;}
+.sponsor-names{font-family:'Cormorant Garamond',serif;font-size:1.08rem;color:var(--text);line-height:1.7;}
+
+/* ── ATTIRE ── */
+#attire{background:var(--burg-pale);}
+.motif-grid{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;}
+.motif-swatch{display:flex;flex-direction:column;align-items:center;gap:.7rem;width:110px;transition:transform .3s ease;}
+.motif-swatch:hover{transform:translateY(-4px);}
+.swatch-circle{width:75px;height:75px;border-radius:50%;box-shadow:0 4px 16px rgba(0,0,0,.12);transition:transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease;}
+.motif-swatch:hover .swatch-circle{animation:swatchBounce .6s ease;box-shadow:0 8px 24px rgba(0,0,0,.2);}
+.swatch-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--text);text-align:center;}
+.dress-box{background:var(--warm-white);border:1px solid var(--gold-line);padding:2rem;max-width:680px;margin:0 auto;position:relative;}
+.dress-box::before{content:'';position:absolute;top:8px;left:8px;right:8px;bottom:8px;border:1px solid rgba(107,32,51,.08);pointer-events:none;}
+.dress-box-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--text);text-align:center;margin-bottom:1rem;font-style:italic;}
+.dress-box p{font-size:.9rem;line-height:1.9;color:var(--text-mid);text-align:center;}
+.dress-badge{display:inline-block;padding:.2rem .7rem;border:1px solid var(--burg);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--burg);margin:.3rem .2rem;background:rgba(107,32,51,.05);transition:all .25s ease;}
+.dress-badge:hover{background:var(--burg);color:var(--warm-white);transform:scale(1.06);}
+.dress-divider{border:none;border-top:1px solid var(--gold-line);margin:.9rem 0;}
+
+/* ── VENUE ── */
+#venue{background:var(--cream);}
+.venue-cards{display:flex;flex-direction:column;gap:2.5rem;}
+.venue-card{display:grid;grid-template-columns:1fr 1.2fr;gap:2.5rem;align-items:start;background:var(--warm-white);border:1px solid var(--gold-line);padding:2rem;transition:box-shadow .4s ease, transform .4s ease;}
+.venue-card:hover{box-shadow:0 16px 48px rgba(107,32,51,.14);transform:translateY(-3px);}
+.venue-card-label{font-size:.68rem;letter-spacing:.38em;text-transform:uppercase;color:var(--burg);display:block;margin-bottom:.6rem;}
+.venue-name{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:300;color:var(--text);margin-bottom:.3rem;line-height:1.2;}
+.venue-addr{font-size:.86rem;line-height:1.9;color:var(--text-mid);border-left:2px solid rgba(107,32,51,.15);padding-left:1rem;margin-bottom:1.5rem;}
+.venue-map{height:220px;overflow:hidden;border:1px solid var(--gold-line);position:relative;}
+.venue-map iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;filter:sepia(20%) saturate(60%);}
+.btn-burg{display:inline-block;padding:.7rem 1.8rem;border:1px solid var(--burg);color:var(--burg);font-family:'Jost',sans-serif;font-size:.75rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:all .28s;position:relative;overflow:hidden;}
+.btn-burg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transform:translateX(-100%);transition:transform .5s ease;}
+.btn-burg:hover{background:var(--burg);color:var(--warm-white);}
+.btn-burg:hover::after{transform:translateX(100%);}
+
+/* ── NOTES ── */
+#notes{background:var(--burg-deep);}
+#notes .s-tag{color:var(--gold-bright);}
+#notes .s-title{color:var(--warm-white);}
+#notes .s-title em{color:var(--champagne);}
+#notes .s-rule{background:var(--champagne);opacity:.3;}
+.notes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
+.note-card{background:rgba(255,255,255,.04);border:1px solid rgba(184,154,104,.18);padding:1.8rem 1.5rem;transition:transform .35s ease, border-color .35s ease, background .35s ease;}
+.note-card:hover{transform:translateY(-5px);border-color:rgba(184,154,104,.45);background:rgba(255,255,255,.08);}
+.note-icon{font-size:1.8rem;display:inline-block;margin-bottom:.8rem;transition:transform .3s ease;}
+.note-card:hover .note-icon{animation:heartbeat .5s ease;}
+.note-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--warm-white);margin-bottom:.6rem;}
+.note-text{font-size:.85rem;color:rgba(255,255,255,.42);line-height:1.88;}
+
+/* ── RSVP ── */
+#rsvp{background:var(--blush);}
+.rsvp-card{
+  background:var(--warm-white);border:1px solid var(--gold-line);
+  max-width:680px;margin:0 auto;padding:3rem 2.5rem;
+  position:relative;text-align:center;
+  transition:box-shadow .4s ease, transform .4s ease;
+  animation:cardFloat 5s ease-in-out infinite;
+}
+.rsvp-card:hover{transform:translateY(-6px) !important;box-shadow:0 20px 56px rgba(107,32,51,.16);}
+.rsvp-card::before,.rsvp-card::after{content:'';position:absolute;width:24px;height:24px;border-color:var(--burg);border-style:solid;opacity:.3;}
+.rsvp-card::before{top:10px;left:10px;border-width:1px 0 0 1px;}
+.rsvp-card::after{bottom:10px;right:10px;border-width:0 1px 1px 0;}
+.rsvp-heading{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;font-style:italic;color:var(--text);margin-bottom:.8rem;}
+.rsvp-body{font-size:.9rem;line-height:1.9;color:var(--text-mid);margin-bottom:1.5rem;}
+.rsvp-iframe-wrap{border:1px solid var(--gold-line);overflow:hidden;margin-bottom:1rem;background:var(--warm-white);}
+.rsvp-iframe-wrap iframe{width:100%;border:none;display:block;}
+.rsvp-hint{font-size:.82rem;color:var(--text-light);line-height:1.7;margin-top:1rem;}
+
+/* ── MUSIC PLAYER ── */
+#music-player{position:fixed;bottom:1.5rem;right:1.5rem;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:.6rem;}
+#music-toggle{width:50px;height:50px;border-radius:50%;background:var(--burg);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(107,32,51,.4);transition:background .25s,transform .2s;position:relative;overflow:hidden;}
+#music-toggle:hover{background:var(--burg-deep);transform:scale(1.07);}
+#music-toggle svg{width:18px;height:18px;fill:white;}
+#music-label{background:rgba(42,18,8,.85);color:white;font-family:'Jost',sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;padding:.28rem .7rem;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s;white-space:nowrap;backdrop-filter:blur(6px);}
+#music-player:hover #music-label{opacity:1;transform:translateY(0);}
+@keyframes spin{to{transform:rotate(360deg);}}
+#music-toggle.playing::after{content:'';position:absolute;inset:3px;border-radius:50%;border:2px solid rgba(255,255,255,.3);border-top-color:rgba(255,255,255,.9);animation:spin 1.4s linear infinite;}
+
+/* ── GALLERY ── */
+#gallery{background:var(--cream);padding:4rem 0;overflow:hidden;}
+#gallery .s-wrap{max-width:900px;margin:0 auto;padding:0 1.5rem;}
+.gallery-scroll-track{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:1rem 1.5rem 1.5rem;scrollbar-width:thin;scrollbar-color:var(--taupe) var(--burg-pale);cursor:grab;}
+.gallery-scroll-track:active{cursor:grabbing;}
+.gallery-scroll-track::-webkit-scrollbar{height:4px;}
+.gallery-scroll-track::-webkit-scrollbar-track{background:var(--burg-pale);}
+.gallery-scroll-track::-webkit-scrollbar-thumb{background:var(--taupe);border-radius:2px;}
+.g-item{flex:0 0 auto;scroll-snap-align:start;position:relative;overflow:hidden;border:1px solid var(--gold-line);background:var(--warm-white);transition:transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease;}
+.g-item:hover{transform:scale(1.03) translateY(-4px);box-shadow:0 16px 40px rgba(107,32,51,.22);z-index:2;}
+.g-item img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.g-item:hover img{transform:scale(1.07);}
+.g-item.portrait{width:190px;height:280px;}
+.g-item.landscape{width:320px;height:210px;}
+.g-scroll-hint{text-align:center;margin-top:.4rem;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--text-light);opacity:.6;}
+
+/* ── FOOTER ── */
+footer{background:var(--burg-deep);text-align:center;padding:4rem 1.5rem;border-top:1px solid rgba(184,154,104,.15);position:relative;overflow:hidden;}
+footer::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(184,154,104,.08),transparent 60%);animation:glimmer 4s ease-in-out infinite;pointer-events:none;}
+.footer-mark{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:300;font-style:italic;color:var(--taupe);display:block;margin-bottom:1rem;animation:floatY 5s ease-in-out infinite, goldGlow 4s ease-in-out infinite;}
+.footer-names{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--warm-white);display:block;margin-bottom:.3rem;}
+.footer-date{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.28);display:block;margin-bottom:1.8rem;}
+.footer-rule{width:32px;height:1px;background:rgba(184,154,104,.3);margin:0 auto 1.2rem;animation:shimmer 2s linear infinite;background:linear-gradient(90deg,transparent,rgba(184,154,104,.6),transparent) !important;background-size:200% auto !important;width:80px !important;}
+.footer-note{font-size:.8rem;color:rgba(255,255,255,.25);letter-spacing:.1em;}
+.footer-craft{font-size:.7rem;color:rgba(255,255,255,.18);margin-top:.5rem;letter-spacing:.08em;}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.22;}}
+@keyframes shimmer{0%{background-position:-200% center;}100%{background-position:200% center;}}
+@keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes goldGlow{0%,100%{text-shadow:0 0 0 transparent;}50%{text-shadow:0 0 28px rgba(184,154,104,.55),0 0 60px rgba(184,154,104,.2);}}
+@keyframes popIn{0%{opacity:0;transform:scale(.82);}70%{transform:scale(1.04);}100%{opacity:1;transform:scale(1);}}
+@keyframes countPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.12);}}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+@keyframes sparkle{0%,100%{opacity:0;transform:scale(0) rotate(0deg);}50%{opacity:1;transform:scale(1) rotate(180deg);}}
+@keyframes dotPop{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(184,154,104,.5);}50%{transform:scale(1.35);box-shadow:0 0 0 6px rgba(184,154,104,0);}}
+@keyframes swatchBounce{0%,100%{transform:translateY(0) scale(1);}40%{transform:translateY(-8px) scale(1.08);}60%{transform:translateY(-4px) scale(1.04);}}
+@keyframes cardFloat{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-5px) rotate(.4deg);}}
+@keyframes heartbeat{0%,100%{transform:scale(1);}14%{transform:scale(1.18);}28%{transform:scale(1);}42%{transform:scale(1.12);}70%{transform:scale(1);}}
+@keyframes glimmer{0%,100%{opacity:.18;}50%{opacity:.55;}}
+@keyframes slideInUp{from{opacity:0;transform:translateY(48px);}to{opacity:1;transform:translateY(0);}}
+@keyframes orbFloat{0%{transform:translate(0,0) scale(1);}33%{transform:translate(30px,-20px) scale(1.08);}66%{transform:translate(-20px,15px) scale(.94);}100%{transform:translate(0,0) scale(1);}}
+
+.amb-orb{position:fixed;border-radius:50%;pointer-events:none;z-index:-1;filter:blur(60px);mix-blend-mode:multiply;}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .9s ease,transform .9s ease;}
+.reveal.in{opacity:1;transform:none;}
+.reveal-left{opacity:0;transform:translateX(-36px);transition:opacity .9s ease, transform .9s ease;}
+.reveal-left.in{opacity:1;transform:translateX(0);}
+.reveal-right{opacity:0;transform:translateX(36px);transition:opacity .9s ease, transform .9s ease;}
+.reveal-right.in{opacity:1;transform:translateX(0);}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* ── MOBILE ── */
+@media(max-width:700px){
+  nav{padding:0 1rem;height:52px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:52px;left:0;right:0;background:rgba(245,239,232,.98);backdrop-filter:blur(14px);border-bottom:1px solid var(--gold-line);padding:1.2rem 1.5rem 1.8rem;gap:0;z-index:199;}
+  .nav-links.open a{padding:.9rem 0;border-bottom:1px solid var(--gold-line);font-size:.9rem;}
+  body{font-size:15px;}
+  section{padding:3.5rem 1rem;}
+  #hero{padding:64px 1rem 4rem;}
+  .cd-item{min-width:0;padding:.6rem .7rem;}
+  .cd-num{font-size:1.5rem;}
+  .about-grid{grid-template-columns:1fr;gap:2rem;}
+  .about-divider{display:none;}
+  .about-photo-wrap{max-width:200px;}
+  .ent-parents{grid-template-columns:1fr;gap:1rem;max-width:100%;}
+  .ent-honor-grid{grid-template-columns:1fr;max-width:280px;gap:1rem;}
+  .ent-cols{grid-template-columns:1fr;gap:1.2rem;}
+  .venue-card{grid-template-columns:1fr;gap:1.2rem;padding:1.3rem;}
+  .venue-map{height:200px;}
+  .sch-timeline::before{left:20px;}
+  .sch-row{grid-template-columns:20px 1fr;gap:0;}
+  .sch-left{display:none;}
+  .sch-dot-wrap{justify-content:flex-start;}
+  .sch-right{padding-left:1.2rem;}
+  .notes-grid{grid-template-columns:1fr;gap:1rem;}
+  .sponsors-grid{grid-template-columns:1fr;}
+  .rsvp-card{padding:2rem 1.2rem;}
+  .motif-swatch{width:80px;}
+  .swatch-circle{width:60px;height:60px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ ENVELOPE OVERLAY ══ -->
+<div id="envelope-overlay">
+  <p class="env-tagline">You are cordially invited</p>
+  <div class="envelope" id="envelope-trigger">
+    <div class="env-back"></div>
+    <div class="letter">
+      <div class="letter-ornament">
+        <span class="letter-orn-line"></span>
+        <span class="letter-orn-dot"></span>
+        <span class="letter-orn-line"></span>
+      </div>
+      <div class="letter-names">Tyrone &amp; Edwina</div>
+      <div class="letter-sub">June 15 · 2026</div>
+    </div>
+    <div class="env-front"></div>
+    <div class="env-flap"></div>
+    <div class="seal">T &amp; E</div>
+    <div class="envelope-text">Tap to open &amp; play music</div>
+  </div>
+</div>
+
+<!-- ══ AUDIO ══ -->
+<audio id="bg-music" src="music.mp3" loop preload="none"></audio>
+
+<!-- ══ MUSIC PLAYER ══ -->
+<div id="music-player">
+  <span id="music-label">♪ Now Playing</span>
+  <button id="music-toggle" aria-label="Toggle music">
+    <svg id="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    <svg id="icon-pause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+  </button>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <span class="nav-monogram">T &amp; E</span>
+  <div class="nav-links" id="navLinks">
+    <a href="#gallery" onclick="closeMenu()">Gallery</a>
+    <a href="#schedule" onclick="closeMenu()">Schedule</a>
+    <a href="#entourage" onclick="closeMenu()">Entourage</a>
+    <a href="#sponsors" onclick="closeMenu()">Sponsors</a>
+    <a href="#venue" onclick="closeMenu()">Venue</a>
+    <a href="#attire" onclick="closeMenu()">Attire</a>
+    <a href="#notes" onclick="closeMenu()">Details</a>
+    <a href="#rsvp" onclick="closeMenu()">RSVP</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:.8rem;">
+    <a href="#rsvp" class="nav-rsvp">RSVP</a>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div style="position:absolute;inset:0;z-index:0;pointer-events:none;">
+    <img src="44.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.45;filter:saturate(0.75) sepia(0.15);animation:floatY 8s ease-in-out infinite;">
+    <div style="position:absolute;inset:0;background:linear-gradient(170deg,rgba(251,248,244,.42) 0%,rgba(240,232,226,.30) 45%,rgba(242,229,232,.45) 100%);"></div>
+  </div>
+  <div class="hero-petals" id="heroPetals"></div>
+  <div id="heroSparkles"></div>
+  <div class="hero-circle" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+  <div class="hero-circle" style="width:350px;height:350px;top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:1.5s;"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Together with their families</p>
+    <div class="hero-names">
+      <span class="hero-name">Tyrone</span>
+      <span class="hero-amp">&amp;</span>
+      <span class="hero-name">Edwina</span>
+    </div>
+    <span class="hero-hashtag">#TyroneFoundHisWina</span>
+    <div class="hero-ornament">
+      <span class="orn-line"></span>
+      <span class="orn-diamond"></span>
+      <span class="orn-line r"></span>
+    </div>
+    <div class="hero-date-block">
+      <span class="hero-date">Monday · June 15, 2026 · Quezon City</span>
+      <div class="countdown" id="countdown">
+        <div class="cd-item"><span class="cd-num" id="cd-d">--</span><span class="cd-lbl">Days</span></div>
+        <div class="cd-item"><span class="cd-num" id="cd-h">--</span><span class="cd-lbl">Hours</span></div>
+        <div class="cd-item"><span class="cd-num" id="cd-m">--</span><span class="cd-lbl">Mins</span></div>
+        <div class="cd-item"><span class="cd-num" id="cd-s">--</span><span class="cd-lbl">Secs</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><div class="scroll-bar"></div></div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<section id="gallery">
+  <div class="s-wrap">
+    <div class="s-head">
+      <span class="s-tag reveal">A Glimpse of Us</span>
+      <h2 class="s-title reveal d1">Our <em>Gallery</em></h2>
+      <div class="s-rule reveal d2"></div>
+    </div>
+  </div>
+  <div class="gallery-scroll-track" id="galleryTrack">
+    <div class="g-item portrait"><img src="45.png" alt="Tyrone &amp; Edwina"></div>
+    <div class="g-item portrait"><img src="46.png" alt="Tyrone &amp; Edwina"></div>
+    <div class="g-item portrait"><img src="47.png" alt="Tyrone &amp; Edwina"></div>
+    <div class="g-item portrait"><img src="48.png" alt="Tyrone &amp; Edwina"></div>
+    <div class="g-item portrait"><img src="49.png" alt="Tyrone &amp; Edwina"></div>
+    
+  </div>
+  <p class="g-scroll-hint">← Scroll to explore →</p>
+</section>
+
+<!-- ══ HASHTAG BANNER ══ -->
+<div id="hashtag">
+  <div class="hashtag-inner">
+    <span class="hashtag-label">Share the love · Tag us on social</span>
+    <span class="hashtag-text">#TyroneFoundHisWina</span>
+    <p class="hashtag-note">Capture the memories — share your photos with our hashtag</p>
+  </div>
+</div>
+
+<!-- ══ 3D RINGS ══ -->
+<div id="rings-section">
+  <div class="rings-glow"></div>
+  <div class="rings-scene">
+    <div class="ring ring-outer"></div>
+    <div class="ring ring-mid"></div>
+    <div class="ring ring-inner"></div>
+    <div class="rings-monogram">J &amp; E</div>
+  </div>
+  <p class="rings-text" style="margin-bottom:.6rem;">Two Becoming One</p>
+  <p class="rings-title">United in Love</p>
+</div>
+
+<!-- ══ SCHEDULE ══ -->
+<section id="schedule">
+  <div class="s-wrap">
+    <div class="s-head">
+      <span class="s-tag reveal">Day Of</span>
+      <h2 class="s-title reveal d1">The <em>Programme</em></h2>
+      <div class="s-rule reveal d2"></div>
+    </div>
+    <div class="sch-timeline">
+      <div class="sch-row reveal">
+        <div class="sch-left">
+          <p class="sch-time">1:00 PM</p>
+          <p class="sch-name">Guest Arrival</p>
+          <p class="sch-desc">Guests are warmly welcomed and guided to their seats</p>
+        </div>
+        <div class="sch-dot-wrap"><div class="sch-dot"></div></div>
+        <div class="sch-right">
+          <p class="sch-time">1:00 PM</p>
+          <p class="sch-name">Guest Arrival</p>
+          <p class="sch-desc">Guests are warmly welcomed and guided to their seats</p>
+        </div>
+      </div>
+      <div class="sch-row reveal d1">
+        <div class="sch-left">
+          <p class="sch-time">2:00 PM</p>
+          <p class="sch-name">Wedding Ceremony</p>
+          <p class="sch-desc">Mabuting Pastol Parish Church<br>Please silence your phones</p>
+        </div>
+        <div class="sch-dot-wrap"><div class="sch-dot"></div></div>
+        <div class="sch-right">
+          <p class="sch-time">2:00 PM</p>
+          <p class="sch-name">Wedding Ceremony</p>
+          <p class="sch-desc">Mabuting Pastol Parish Church<br>Please silence your phones</p>
+        </div>
+      </div>
+      <div class="sch-row reveal d2">
+        <div class="sch-left">
+          <p class="sch-time">4:00 PM</p>
+          <p class="sch-name">Reception Dinner</p>
+          <p class="sch-desc">Sto Niño Multipurpose Hall<br>Food, music &amp; dancing</p>
+        </div>
+        <div class="sch-dot-wrap"><div class="sch-dot"></div></div>
+        <div class="sch-right">
+          <p class="sch-time">4:00 PM</p>
+          <p class="sch-name">Reception Dinner</p>
+          <p class="sch-desc">Sto Niño Multipurpose Hall<br>Food, music &amp; dancing</p>
+        </div>
+      </div>
+      <div class="sch-row reveal">
+        <div class="sch-left">
+          <p class="sch-time">6:00 PM</p>
+          <p class="sch-name">After Party</p>
+          <p class="sch-desc">Catubao Residence<br>Celebrate the night away!</p>
+        </div>
+        <div class="sch-dot-wrap"><div class="sch-dot"></div></div>
+        <div class="sch-right">
+          <p class="sch-time">6:00 PM</p>
+          <p class="sch-name">After Party</p>
+          <p class="sch-desc">Catubao Residence<br>Celebrate the night away!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ENTOURAGE ══ -->
+<section id="entourage">
+  <div class="s-wrap">
+    <div class="s-head">
+      <span class="s-tag reveal">Our Beloved</span>
+      <h2 class="s-title reveal d1">The <em>Entourage</em></h2>
+      <div class="s-rule reveal d2"></div>
+    </div>
+
+    <!-- Maid of Honor & Best Man -->
+    <div class="ent-section">
+      <span class="ent-label">Maid of Honor &amp; Best Man</span>
+      <div class="ent-honor-grid reveal" style="max-width:700px;">
+        <div class="ent-honor-card">
+          <span class="ent-role">Maid of Honor</span>
+          <p class="ent-person">Yi-Lin Catubao Pan</p>
+          <p class="ent-person">Mariel Salazar</p>
+        </div>
+        <div class="ent-honor-card">
+          <span class="ent-role">Best Man</span>
+          <p class="ent-person">Mark Cyrus Catubao</p>
+          <p class="ent-person">Mico Ryan Reclusado</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Groomsmen & Bridesmaids -->
+    <div class="ent-section">
+      <span class="ent-label">Groomsmen &amp; Bridesmaids</span>
+      <div class="ent-cols reveal">
+        <div>
+          <p class="ent-col-label">Groomsmen</p>
+          <ul class="ent-list">
+            <li><span>Mr. Rain Embate</span></li>
+            <li><span>Mr. Mark Lianne Bacus</span></li>
+            <li><span>Mr. Eugene Aguilos</span></li>
+            <li><span>Mr. Miguel Luis Saison</span></li>
+            <li><span>Mr. Edrin Nueca</span></li>
+            <li><span>Mr. Juan Paolo Nella</span></li>
+            <li><span>Mr. Julius Dave Olajay</span></li>
+            <li><span>Mr. Rodel Hollon</span></li>
+            <li><span>Mr. VJ Valencia</span></li>
+          </ul>
+        </div>
+        <div>
+          <p class="ent-col-label">Bridesmaids</p>
+          <ul class="ent-list">
+            <li><span>Ms. Alliah Maquiling</span></li>
+            <li><span>Ms. Samantha Catubao</span></li>
+            <li><span>Ms. Shanelle Catubao</span></li>
+            <li><span>Ms. Marnie Luisa Saison</span></li>
+            <li><span>Ms. Sabrina Catubao</span></li>
+            <li><span>Ms. Hane Catubao</span></li>
+            <li><span>Ms. Randelyn Alcodia</span></li>
+            <li><span>Ms. Lovely Vergara</span></li>
+            <li><span>Ms. Lalaine Padilla</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Special Roles -->
+    <div class="ent-section">
+      <span class="ent-label">Special Roles</span>
+      <div class="sponsors-grid reveal" style="margin-top:0;max-width:680px;margin-left:auto;margin-right:auto;">
+        <div class="sponsor-item">
+          <span class="sponsor-type">Ring Bearer</span>
+          <p class="sponsor-names">Wayne Maquiling</p>
+        </div>
+        <div class="sponsor-item">
+          <span class="sponsor-type">Bible Bearer</span>
+          <p class="sponsor-names">Edwin Nueca Jr.</p>
+        </div>
+        <div class="sponsor-item" style="grid-column:1/-1;">
+          <span class="sponsor-type">Coin Bearer</span>
+          <p class="sponsor-names">Marcus Zayn Reclusado</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRINCIPAL SPONSORS ══ -->
+<section id="sponsors">
+  <div class="s-wrap">
+    <div class="s-head">
+      <span class="s-tag reveal">With Love &amp; Support</span>
+      <h2 class="s-title reveal d1">The <em>Sponsors</em></h2>
+      <div class="s-rule reveal d2"></div>
+    </div>
+
+    <!-- Parents -->
+    <div class="ent-section">
+      <div class="ent-parents reveal">
+        <div class="ent-family-card">
+          <span class="ent-family-label">Groom's Parents</span>
+          <p class="ent-name">
+            Mr. Edwin Nueca<br>Mrs. Loreta Nueca
+          </p>
+        </div>
+        <div class="ent-family-card">
+          <span class="ent-family-label">Bride's Family</span>
+          <p class="ent-name">
+            Mrs. Eliza S. Catubao<br>
+            <span style="font-size:.95rem;color:var(--text-light);">Grandparent: Mr. Arsenio Catubao</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Principal Sponsors -->
+    <div style="text-align:center;margin-bottom:1.2rem;">
+      <span class="s-tag" style="font-size:.7rem;">Principal Sponsors — Ninong &amp; Ninang</span>
+    </div>
+    <div class="reveal" style="border:1px solid var(--gold-line);overflow:hidden;margin-bottom:1rem;">
+      <table class="principal-table">
+        <tbody>
+          <tr><td>Sarah Catubao Pan</td><td>Victor Argenio</td></tr>
+          <tr><td>Rosalina Viray</td><td>Mamerto Silvestre</td></tr>
+          <tr><td colspan="2" style="text-align:center;">Erlina Kishida</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ATTIRE GUIDE ══ -->
+<section id="attire">
+  <div class="s-wrap">
+    <div class="s-head">
+      <span class="s-tag reveal">Dress the Part</span>
+      <h2 class="s-title reveal d1">Attire <em>Guide</em></h2>
+      <div class="s-rule reveal d2"></div>
+    </div>
+    <div class="motif-grid reveal">
+      <div class="motif-swatch">
+        <div class="swatch-circle" style="background:#6B2033;"></div>
+        <span class="swatch-name">Burgundy</span>
+      </div>
+      <div class="motif-swatch">
+        <div class="swatch-circle" style="background:#9C8880;"></div>
+        <span class="swatch-name">Gray Brown</span>
+      </div>
+      <div class="motif-swatch">
+        <div class="swatch-circle" style="background:#7A3040;"></div>
+        <span class="swatch-name">Maroon</span>
+      </div>
+      <div class="motif-swatch">
+        <div class="swatch-circle" style="background:#D4C4A0;"></div>
+        <span class="swatch-name">Champagne</span>
+      </div>
+      <div class="motif-swatch">
+        <div class="swatch-circle" style="background:#C4B5A8;"></div>
+        <span class="swatch-name">Taupe</span>
+      </div>
+      <div class="motif-swatch">
+        <div class="swatch-circle" style="background:#8B6A50;"></div>
+        <span class="swatch-name">Brown</span>
+      </div>
+      <div class="motif-swatch">
+        <div class="swatch-circle" style="background:#E8DDD4;"></div>
+        <span class="swatch-name">Sand</span>
+      </div>
+      <div class="motif-swatch">
+        <div class="swatch-circle" style="background:#6B5A52;"></div>
+        <span class="swatch-name">Earthy</span>
+      </div>
+    </div>
+    <div class="dress-box reveal d1">
+      <p class="dress-box-title">Formal / Semi-Formal Attire</p>
+      <p>We'd love to see you dressed in these beautiful earthy tones on our special day.</p>
+      <hr class="dress-divider">
+      <p>
+        <span class="dress-badge">Burgundy</span>
+        <span class="dress-badge">Gray Brown</span>
+        <span class="dress-badge">Maroon</span>
+        <span class="dress-badge">Champagne</span>
+        <span class="dress-badge">Taupe</span>
+        <span class="dress-badge">Brown</span>
+        <span class="dress-badge">Sand</span>
+      </p>
+      <hr class="dress-divider">
+      <p>Please avoid wearing white, off-white, or anything that may overshadow the bride. We appreciate your cooperation in making our day visually beautiful.</p>
+      <hr class="dress-divider">
+      <p style="color:var(--burg);font-weight:500;font-size:.85rem;">
+        ✦ Strictly no white, beige, or red.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VENUE ══ -->
+<section id="venue">
+  <div class="s-wrap">
+    <div class="s-head">
+      <span class="s-tag reveal">Where to Find Us</span>
+      <h2 class="s-title reveal d1">The <em>Venue</em></h2>
+      <div class="s-rule reveal d2"></div>
+    </div>
+    <div class="venue-cards">
+      <!-- CEREMONY -->
+      <div class="venue-card reveal">
+        <div>
+          <span class="venue-card-label">Ceremony</span>
+          <p class="venue-name">Mabuting Pastol Parish Church</p>
+          <p class="venue-addr">
+            #6 Sto. Niño, Commonwealth<br>
+            Quezon City<br>
+            Monday, June 15, 2026 &nbsp;·&nbsp; 2:00 PM
+          </p>
+          <a href="https://maps.google.com/?q=Sto+Nino+Parish+Commonwealth+Quezon+City" target="_blank" class="btn-burg">Get Directions ↗</a>
+        </div>
+        <div class="venue-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.2!2d121.0572!3d14.7029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b13b35555555%3A0x0!2sSto.+Nino+Commonwealth+Quezon+City!5e0!3m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <!-- RECEPTION -->
+      <div class="venue-card reveal d1">
+        <div>
+          <span class="venue-card-label">Reception</span>
+          <p class="venue-name">Sto Niño Multipurpose Hall</p>
+          <p class="venue-addr">
+            #44 Sto. Niño, Commonwealth<br>
+            Quezon City<br>
+            Reception Dinner at 4:00 PM
+          </p>
+          <a href="https://maps.google.com/?q=Sto+Nino+Multipurpose+Hall+Commonwealth+Quezon+City" target="_blank" class="btn-burg">Get Directions ↗</a>
+        </div>
+        <div class="venue-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.2!2d121.0582!3d14.7025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b13b35666666%3A0x0!2sSto.+Nino+Multipurpose+Hall+Commonwealth+Quezon+City!5e0!3m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NOTES / DETAILS ══ -->
+<section id="notes">
+  <div class="s-wrap">
+    <div class="s-head">
+      <span class="s-tag reveal">Finer Details</span>
+      <h2 class="s-title reveal d1">Good to <em>Know</em></h2>
+      <div class="s-rule reveal d2"></div>
+    </div>
+    <div class="notes-grid">
+      <div class="note-card reveal">
+        <span class="note-icon">📵</span>
+        <p class="note-title">Unplugged Ceremony</p>
+        <p class="note-text">No phones allowed during the ceremony. We've hired professional photographers to capture our vows beautifully. Please be fully present with us in this moment.</p>
+      </div>
+      <div class="note-card reveal d1">
+        <span class="note-icon">🎁</span>
+        <p class="note-title">Gift Guide</p>
+        <p class="note-text">Your presence is enough, but monetary gifts are deeply appreciated. They will help us build our new life together with joy and gratitude.</p>
+      </div>
+      <div class="note-card reveal">
+        <span class="note-icon">📸</span>
+        <p class="note-title">Snap &amp; Share</p>
+        <p class="note-text">Help us relive every moment! Share your photos using our hashtag <strong style="color:var(--gold);">#TyroneFoundHisWina</strong> on all your posts.</p>
+      </div>
+      <div class="note-card reveal d1">
+        <span class="note-icon">🕐</span>
+        <p class="note-title">Please Be On Time</p>
+        <p class="note-text">The ceremony begins promptly at 2:00 PM. Guests are kindly asked to arrive by 1:00 PM to ensure an undisturbed and beautiful start.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RSVP ══ -->
+<section id="rsvp">
+  <div class="s-wrap">
+    <div class="s-head">
+      <span class="s-tag reveal">Will You Join Us?</span>
+      <h2 class="s-title reveal d1">RSVP <em>Here</em></h2>
+      <div class="s-rule reveal d2"></div>
+    </div>
+    <div class="rsvp-card reveal">
+      <p class="rsvp-heading">Kindly Reply</p>
+      <p class="rsvp-body">Please let us know if you'll be joining our celebration. Your response helps us ensure everything is perfect for our special day.</p>
+      <!-- ══ GOOGLE FORM EMBED ══ -->
+      <!-- Replace the src below with your actual Google Form embed URL -->
+      <div class="rsvp-iframe-wrap">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdtddQ3jLYv9vTWreqCMlTBOkR2M-emg4mC0wqoXCmzPofTrA/viewform?embedded=true" width="640" height="679" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
+      <p class="rsvp-hint">For questions, please reach out to the couple directly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <span class="footer-mark">T &amp; E</span>
+  <span class="footer-names">Tyrone &amp; Edwina</span>
+  <span class="footer-date">June 15 · 2026 · Quezon City</span>
+  <div class="footer-rule"></div>
+  <p class="footer-note">#TyroneFoundHisWina</p>
+  <p class="footer-craft">Crafted with love by Love &amp; Crafts</p>
+</footer>
+
+<script>
+// ── HAMBURGER MENU ──
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('navLinks').classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('navLinks').classList.remove('open');
+}
+
+// ── COUNTDOWN ──
+function tick(){
+  const target = new Date('2026-06-15T14:00:00+08:00');
+  const diff = target - Date.now();
+  if(diff <= 0){
+    document.getElementById('countdown').innerHTML = '<p style="font-family:Cormorant Garamond,serif;font-style:italic;font-size:1.3rem;color:var(--burg);padding:1rem 2rem;">Today is the day! 🥂</p>';
+    return;
+  }
+  const d = Math.floor(diff/86400000);
+  const h = Math.floor((diff%86400000)/3600000);
+  const m = Math.floor((diff%3600000)/60000);
+  const s = Math.floor((diff%60000)/1000);
+  const ids = ['cd-d','cd-h','cd-m','cd-s'];
+  const vals = [d,h,m,s];
+  ids.forEach((id,i)=>{
+    const el = document.getElementById(id);
+    const str = String(vals[i]).padStart(2,'0');
+    if(el.textContent !== str){
+      el.textContent = str;
+      el.classList.remove('tick');
+      void el.offsetWidth;
+      el.classList.add('tick');
+    }
+  });
+}
+tick(); setInterval(tick,1000);
+
+// ── FLOATING PETALS ──
+(function(){
+  const container = document.getElementById('heroPetals');
+  const colors = [
+    'rgba(107,32,51,.08)','rgba(184,154,104,.12)',
+    'rgba(196,181,168,.25)','rgba(92,26,38,.06)'
+  ];
+  for(let i = 0; i < 28; i++){
+    const p = document.createElement('div');
+    p.className = 'petal';
+    const size = 8 + Math.random()*16;
+    p.style.cssText = `
+      width:${size}px;height:${size*1.5}px;
+      left:${Math.random()*100}%;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      animation-duration:${10+Math.random()*18}s;
+      animation-delay:${-Math.random()*22}s;
+      border-radius:${40+Math.random()*20}% ${10+Math.random()*15}% ${40+Math.random()*20}% ${10+Math.random()*15}%;
+    `;
+    container.appendChild(p);
+  }
+})();
+
+// ── HERO SPARKLES ──
+(function(){
+  const container = document.getElementById('heroSparkles');
+  if(!container) return;
+  container.style.cssText = 'position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden;';
+  for(let i = 0; i < 55; i++){
+    const s = document.createElement('div');
+    s.className = 'hero-spark';
+    const size = 1.5 + Math.random()*5;
+    const colors = ['var(--gold)','var(--gold-bright)','rgba(255,240,200,.9)','rgba(184,154,104,.8)','rgba(255,255,255,.85)'];
+    s.style.cssText = `
+      width:${size}px;height:${size}px;
+      left:${2+Math.random()*96}%;
+      top:${2+Math.random()*96}%;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      animation-duration:${1.5+Math.random()*5}s;
+      animation-delay:${-Math.random()*6}s;
+      opacity:${0.4+Math.random()*0.6};
+      border-radius:50%;
+    `;
+    container.appendChild(s);
+  }
+})();
+
+// ── GLOBAL FLOATING SPARKLES (cross-page) ──
+(function(){
+  const layer = document.createElement('div');
+  layer.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9998;overflow:hidden;';
+  document.body.appendChild(layer);
+  const colors = ['rgba(184,154,104,.55)','rgba(201,173,122,.6)','rgba(255,245,210,.7)','rgba(107,32,51,.25)','rgba(255,255,255,.5)'];
+  for(let i = 0; i < 38; i++){
+    const s = document.createElement('div');
+    const size = 2 + Math.random()*4.5;
+    const dur = 3 + Math.random()*7;
+    s.style.cssText = `
+      position:absolute;
+      width:${size}px;height:${size}px;
+      border-radius:50%;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      left:${Math.random()*100}%;
+      top:${Math.random()*100}%;
+      animation:sparkle ${dur}s ${-Math.random()*dur}s ease-in-out infinite;
+      pointer-events:none;
+    `;
+    layer.appendChild(s);
+  }
+})();
+
+// ── AMBIENT ORBS ──
+(function(){
+  const orbs = [
+    {color:'rgba(184,154,104,.06)',size:420,x:'10%',y:'15%',dur:14},
+    {color:'rgba(107,32,51,.05)',size:380,x:'80%',y:'60%',dur:18},
+    {color:'rgba(196,181,168,.08)',size:300,x:'50%',y:'80%',dur:12},
+  ];
+  orbs.forEach(o=>{
+    const el = document.createElement('div');
+    el.className = 'amb-orb';
+    el.style.cssText = `
+      width:${o.size}px;height:${o.size}px;
+      background:radial-gradient(circle,${o.color},transparent 70%);
+      left:${o.x};top:${o.y};
+      animation:orbFloat ${o.dur}s ease-in-out infinite;
+      animation-delay:${-Math.random()*o.dur}s;
+    `;
+    document.body.appendChild(el);
+  });
+})();
+
+// ── SCROLL REVEAL ──
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.s-tag,.s-rule').forEach(el=>io.observe(el));
+
+// ── STAGGER CHILDREN ──
+const staggerIo = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const children = e.target.querySelectorAll('.ent-family-card,.ent-honor-card,.note-card,.motif-swatch,.sponsor-item,.g-item');
+      children.forEach((child,i)=>{
+        setTimeout(()=>{child.style.opacity='1';child.style.transform='translateY(0) scale(1)';}, i*80);
+      });
+      staggerIo.unobserve(e.target);
+    }
+  });
+},{threshold:0.05});
+document.querySelectorAll('.ent-parents,.ent-honor-grid,.notes-grid,.motif-grid,.sponsors-grid,.gallery-scroll-track').forEach(wrap=>{
+  wrap.querySelectorAll('.ent-family-card,.ent-honor-card,.note-card,.motif-swatch,.sponsor-item').forEach(child=>{
+    child.style.opacity='0';child.style.transform='translateY(20px) scale(.97)';
+    child.style.transition='opacity .55s ease, transform .55s ease';
+  });
+  staggerIo.observe(wrap);
+});
+
+
+
+// ── SCHEDULE STAGGER ──
+const schIo = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.sch-row').forEach((row,i)=>{
+        setTimeout(()=>{row.style.opacity='1';row.style.transform='translateY(0)';}, i*140);
+      });
+      schIo.unobserve(e.target);
+    }
+  });
+},{threshold:0.05});
+const schTimeline = document.querySelector('.sch-timeline');
+if(schTimeline){
+  schTimeline.querySelectorAll('.sch-row').forEach(row=>{
+    row.style.opacity='0';row.style.transform='translateY(28px)';
+    row.style.transition='opacity .7s ease, transform .7s ease';
+  });
+  schIo.observe(schTimeline);
+}
+
+// ── SECTION TITLE WAVE ──
+document.querySelectorAll('.s-title').forEach(title=>{
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){title.style.animation='slideInUp .8s ease both';observer.unobserve(title);}
+    });
+  },{threshold:0.2});
+  observer.observe(title);
+});
+
+// ── NAV SCROLL SHADOW ──
+window.addEventListener('scroll',()=>{
+  const nav = document.querySelector('nav');
+  if(window.scrollY > 40){
+    nav.style.boxShadow='0 4px 24px rgba(107,32,51,.10)';
+  } else {nav.style.boxShadow='';}
+},{passive:true});
+
+// ── GALLERY DRAG SCROLL ──
+(function(){
+  const track = document.getElementById('galleryTrack');
+  if(!track) return;
+  let isDown=false,startX,scrollLeft;
+  track.addEventListener('mousedown',e=>{isDown=true;track.style.userSelect='none';startX=e.pageX-track.offsetLeft;scrollLeft=track.scrollLeft;});
+  track.addEventListener('mouseleave',()=>{isDown=false;});
+  track.addEventListener('mouseup',()=>{isDown=false;track.style.userSelect='';});
+  track.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-track.offsetLeft;const walk=(x-startX)*1.4;track.scrollLeft=scrollLeft-walk;});
+})();
+
+// ── MUSIC PLAYER ──
+const audio = document.getElementById('bg-music');
+const btn = document.getElementById('music-toggle');
+const iconPlay = document.getElementById('icon-play');
+const iconPause = document.getElementById('icon-pause');
+let started = false;
+function setPlaying(playing){
+  iconPlay.style.display = playing ? 'none' : '';
+  iconPause.style.display = playing ? '' : 'none';
+  playing ? btn.classList.add('playing') : btn.classList.remove('playing');
+}
+btn.addEventListener('click',()=>{
+  if(audio.paused){
+    audio.volume = 0.4;
+    audio.play().then(()=>setPlaying(true)).catch(()=>{});
+  } else {audio.pause();setPlaying(false);}
+  started = true;
+});
+
+// ── ENVELOPE OPEN ──
+document.addEventListener('DOMContentLoaded',()=>{
+  const overlay = document.getElementById('envelope-overlay');
+  const envelope = document.getElementById('envelope-trigger');
+  document.body.style.overflow = 'hidden';
+  if(envelope){
+    envelope.addEventListener('click',()=>{
+      envelope.classList.add('open');
+      audio.volume = 0.4;
+      audio.play().then(()=>{setPlaying(true);started=true;}).catch(()=>{});
+      setTimeout(()=>{overlay.classList.add('hidden');document.body.style.overflow = '';}, 1200);
+    });
+  }
+});
+</script>
+</body>
+</html>
